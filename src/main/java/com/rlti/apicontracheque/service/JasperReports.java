@@ -1,7 +1,6 @@
 package com.rlti.apicontracheque.service;
 
 import com.rlti.apicontracheque.response.ContrachequeResponse;
-import com.rlti.apicontracheque.utils.ConvertString;
 import lombok.experimental.UtilityClass;
 import net.sf.jasperreports.engine.*;
 
@@ -11,7 +10,7 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.rlti.apicontracheque.utils.ConvertString.*;
+import static com.rlti.apicontracheque.utils.ConvertString.formatarMoeda;
 
 @UtilityClass
 public class JasperReports {
@@ -52,5 +51,21 @@ public class JasperReports {
         parameters.put("fgts", formatarMoeda(contrachequeResponse.getFgts()));
         parameters.put("salarioLiquido", formatarMoeda(contrachequeResponse.getSalarioLiquido()));
         return parameters;
+    }
+
+    public static byte[] gerarContrachequePdf(ContrachequeResponse contrachequeResponse) {
+        try {
+            InputStream templateStream = JasperReports.class.getResourceAsStream("/templates/contracheque.jrxml");
+            JasperReport jasperReport = JasperCompileManager.compileReport(templateStream);
+            Map<String, Object> parameters = getStringObjectMap(contrachequeResponse);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, new JREmptyDataSource());
+
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            JasperExportManager.exportReportToPdfStream(jasperPrint, baos);
+            return baos.toByteArray();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new byte[0];
+        }
     }
 }

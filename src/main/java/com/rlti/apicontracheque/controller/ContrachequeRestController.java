@@ -5,6 +5,7 @@ import com.rlti.apicontracheque.request.SimulacaoInssRequest;
 import com.rlti.apicontracheque.service.ContrachequeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -14,7 +15,12 @@ public class ContrachequeRestController implements ContrachequeApi {
     private final ContrachequeService contrachequeService;
 
     @Override
-    public String gerarContracheque(SimulacaoInssRequest simulacaoInssRequest) {
+    public String gerarContrachequeBase64(SimulacaoInssRequest simulacaoInssRequest) {
         return contrachequeService.gerarContracheque(simulacaoInssRequest);
+    }
+
+    @Override
+    public ResponseEntity<byte[]> gerarContrachequePdf(SimulacaoInssRequest simulacaoInssRequest) {
+        return contrachequeService.gerarContracheque2(simulacaoInssRequest);
     }
 }
