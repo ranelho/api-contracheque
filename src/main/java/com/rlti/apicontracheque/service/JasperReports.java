@@ -37,19 +37,26 @@ public class JasperReports {
 
     private static Map<String, Object> getStringObjectMap(ContrachequeResponse contrachequeResponse) {
         Map<String, Object> parameters = new HashMap<>();
-        parameters.put("nomeFuncionario", contrachequeResponse.getNomeFuncionario());
-        parameters.put("cpf", formatarCpfCnpj(contrachequeResponse.getCpf()));
-        parameters.put("numeroMatricula", contrachequeResponse.getNumeroMatricula());
-        parameters.put("dataAdmissao", formatarData(contrachequeResponse.getDataAdmissao()));
-        parameters.put("cargo", contrachequeResponse.getCargo());
-        parameters.put("setor", contrachequeResponse.getSetor());
-        parameters.put("mesCompetencia", formatarMesAno(contrachequeResponse.getMesCompetencia()));
-        parameters.put("salarioBruto", formatarMoeda(contrachequeResponse.getSalarioBruto()));
-        parameters.put("aliquota", contrachequeResponse.getAliquota());
-        parameters.put("valorDescontoInss", formatarMoeda(contrachequeResponse.getValorDescontoInss()));
-        parameters.put("valorDescontoIrrf", formatarMoeda(contrachequeResponse.getValorDescontoIrrf()));
-        parameters.put("fgts", formatarMoeda(contrachequeResponse.getFgts()));
-        parameters.put("salarioLiquido", formatarMoeda(contrachequeResponse.getSalarioLiquido()));
+        parameters.put("nomeFuncionario", contrachequeResponse.nomeFuncionario());
+        parameters.put("cpf", formatarCpfCnpj(contrachequeResponse.cpf()));
+        parameters.put("numeroMatricula", contrachequeResponse.numeroMatricula());
+        parameters.put("dataAdmissao", formatarData(contrachequeResponse.dataAdmissao()));
+        parameters.put("cargo", contrachequeResponse.cargo());
+        parameters.put("setor", contrachequeResponse.setor());
+        parameters.put("mesCompetencia", formatarMesAno(contrachequeResponse.mesCompetencia()));
+        parameters.put("fgts", formatarMoeda(contrachequeResponse.fgts()));
+        parameters.put("salarioBruto", formatarMoeda(contrachequeResponse.salarioBruto()));
+        parameters.put("salarioLiquido", formatarMoeda(contrachequeResponse.salarioLiquido()));
+        parameters.put("totalDescontos", formatarMoeda(contrachequeResponse.totalDescontos()));
+        parameters.put("totalVencimentos", formatarMoeda(contrachequeResponse.totalVencimentos()));
+        parameters.put("empresa", contrachequeResponse.empresa().nomeFantasia());
+        parameters.put("cnpj", formatarCpfCnpj(contrachequeResponse.empresa().cnpj()));
+        parameters.put("banco", contrachequeResponse.banco());
+        parameters.put("agencia", contrachequeResponse.agencia());
+        parameters.put("conta", contrachequeResponse.conta());
+        parameters.put("dataPagamento", contrachequeResponse.dataPagamento() != null ? formatarData(contrachequeResponse.dataPagamento()) : "");
+        parameters.put("ctps", contrachequeResponse.ctps());
+
         return parameters;
     }
 

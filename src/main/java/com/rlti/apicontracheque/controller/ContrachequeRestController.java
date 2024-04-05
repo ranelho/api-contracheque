@@ -1,7 +1,7 @@
 package com.rlti.apicontracheque.controller;
 
 import com.rlti.apicontracheque.application.ContrachequeApi;
-import com.rlti.apicontracheque.request.SimulacaoInssRequest;
+import com.rlti.apicontracheque.request.ContrachequeRequest;
 import com.rlti.apicontracheque.service.ContrachequeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,12 +15,12 @@ public class ContrachequeRestController implements ContrachequeApi {
     private final ContrachequeService contrachequeService;
 
     @Override
-    public String gerarContrachequeBase64(SimulacaoInssRequest simulacaoInssRequest) {
-        return contrachequeService.gerarContracheque(simulacaoInssRequest);
+    public String gerarContrachequeBase64(ContrachequeRequest contrachequeRequest) {
+        return contrachequeService.gerarContracheque(contrachequeRequest);
     }
 
     @Override
-    public ResponseEntity<byte[]> gerarContrachequePdf(SimulacaoInssRequest simulacaoInssRequest) {
-        return contrachequeService.gerarContracheque2(simulacaoInssRequest);
+    public ResponseEntity<byte[]> gerarContrachequePdf(ContrachequeRequest contrachequeRequest) {
+        return contrachequeService.gerarContracheque2(contrachequeRequest);
     }
 }

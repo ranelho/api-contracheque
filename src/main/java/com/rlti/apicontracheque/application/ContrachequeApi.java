@@ -1,6 +1,6 @@
 package com.rlti.apicontracheque.application;
 
-import com.rlti.apicontracheque.request.SimulacaoInssRequest;
+import com.rlti.apicontracheque.request.ContrachequeRequest;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,9 +11,9 @@ public interface ContrachequeApi {
 
     @PostMapping("/funcionario")
     @ResponseStatus(HttpStatus.OK)
-    String gerarContrachequeBase64(@Valid @RequestBody SimulacaoInssRequest simulacaoInssRequest);
+    String gerarContrachequeBase64(@Valid @RequestBody ContrachequeRequest contrachequeRequest);
 
     @PostMapping("/funcionario/pdf")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<byte[]> gerarContrachequePdf(@Valid @RequestBody SimulacaoInssRequest simulacaoInssRequest) ;
+    public ResponseEntity<byte[]> gerarContrachequePdf(@Valid @RequestBody ContrachequeRequest contrachequeRequest) ;
 }

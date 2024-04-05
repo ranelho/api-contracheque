@@ -1,6 +1,6 @@
 package com.rlti.apicontracheque.request;
 
-public record SimulacaoInssRequest(
+public record ContrachequeRequest(
         String mesAno,
         String matricula
 ) {
