@@ -16,6 +16,4 @@ public interface ContrachequeApi {
     @PostMapping("/funcionario/pdf")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<byte[]> gerarContrachequePdf(@Valid @RequestBody SimulacaoInssRequest simulacaoInssRequest) ;
-
-
 }

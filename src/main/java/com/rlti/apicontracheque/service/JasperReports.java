@@ -10,7 +10,7 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.rlti.apicontracheque.utils.ConvertString.formatarMoeda;
+import static com.rlti.apicontracheque.utils.ConvertString.*;
 
 @UtilityClass
 public class JasperReports {
@@ -38,12 +38,12 @@ public class JasperReports {
     private static Map<String, Object> getStringObjectMap(ContrachequeResponse contrachequeResponse) {
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("nomeFuncionario", contrachequeResponse.getNomeFuncionario());
-        parameters.put("cpf", contrachequeResponse.getCpf());
+        parameters.put("cpf", formatarCpfCnpj(contrachequeResponse.getCpf()));
         parameters.put("numeroMatricula", contrachequeResponse.getNumeroMatricula());
-        parameters.put("dataAdmissao", contrachequeResponse.getDataAdmissao().toString());
+        parameters.put("dataAdmissao", formatarData(contrachequeResponse.getDataAdmissao()));
         parameters.put("cargo", contrachequeResponse.getCargo());
         parameters.put("setor", contrachequeResponse.getSetor());
-        parameters.put("mesCompetencia", contrachequeResponse.getMesCompetencia());
+        parameters.put("mesCompetencia", formatarMesAno(contrachequeResponse.getMesCompetencia()));
         parameters.put("salarioBruto", formatarMoeda(contrachequeResponse.getSalarioBruto()));
         parameters.put("aliquota", contrachequeResponse.getAliquota());
         parameters.put("valorDescontoInss", formatarMoeda(contrachequeResponse.getValorDescontoInss()));
