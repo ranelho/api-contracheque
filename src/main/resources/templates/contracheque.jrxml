@@ -19,6 +19,14 @@
 		<field name="descricao" class="java.lang.String"/>
 		<field name="valorDesconto" class="java.lang.String"/>
 	</subDataset>
+	<subDataset name="vencimentosDataset" uuid="8205123b-548d-47dd-a3a0-b8a093d9ad5d">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="codigo" class="java.lang.String"/>
+		<field name="descricao" class="java.lang.String"/>
+		<field name="valorVencimento" class="java.lang.String"/>
+	</subDataset>
 	<parameter name="nomeFuncionario" class="java.lang.String"/>
 	<parameter name="cpf" class="java.lang.String"/>
 	<parameter name="numeroMatricula" class="java.lang.String"/>
@@ -42,6 +50,7 @@
 	<parameter name="totalDescontos" class="java.lang.String"/>
 	<parameter name="ctps" class="java.lang.String"/>
 	<parameter name="descontosDataSet" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="vencimentosDataSet" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<title>
 		<band height="56">
 			<staticText>
@@ -58,7 +67,7 @@
 		</band>
 	</title>
 	<detail>
-		<band height="480">
+		<band height="510">
 			<rectangle>
 				<reportElement mode="Transparent" x="0" y="30" width="275" height="25" uuid="8236c8a6-f1fd-4017-912f-3ee98be272ef"/>
 			</rectangle>
@@ -379,6 +388,54 @@
 					</jr:column>
 				</jr:table>
 			</componentElement>
+			<componentElement>
+				<reportElement x="6" y="168" width="265" height="187" uuid="96be7ff3-6fe7-41d1-963e-f8ddc5e28bbe">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="vencimentosDataset" uuid="1621aa85-80bc-42da-b0f2-5719dad41de7">
+						<dataSourceExpression><![CDATA[$P{vencimentosDataSet}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="40" uuid="44dfa7ae-f055-48bf-b183-814c10ba3316">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:detailCell height="20">
+							<textField>
+								<reportElement x="0" y="0" width="40" height="20" uuid="86a39a05-bda7-43bb-b733-a17f731435bc"/>
+								<textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="180" uuid="2f6b56ab-b62d-46da-be89-569109d0d311">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:detailCell height="20">
+							<textField>
+								<reportElement x="0" y="0" width="180" height="20" uuid="477eb5db-5753-4a0f-97ca-9fc79d6b2558"/>
+								<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="45" uuid="c7a90911-0edc-487f-81a3-3bdb91580c41">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:detailCell height="20">
+							<textField>
+								<reportElement x="0" y="0" width="45" height="20" uuid="3cf3f277-27b7-4e6f-a4e3-4023f2a5ca47"/>
+								<textFieldExpression><![CDATA[$F{valorVencimento}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<rectangle>
+				<reportElement x="276" y="480" width="279" height="19" uuid="fd0e0ef4-bcba-4852-ba1e-f78353d711d6"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="276" y="481" width="274" height="18" uuid="35e5fbd7-0704-4877-b356-fef407003f0d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Developed by: Ranelho Lacerda ®]]></text>
+			</staticText>
 		</band>
 	</detail>
 </jasperReport>

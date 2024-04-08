@@ -1,14 +1,15 @@
 package com.rlti.apicontracheque.service;
 
 import com.rlti.apicontracheque.response.ContrachequeResponse;
+import com.rlti.apicontracheque.response.DescontosResponse;
+import com.rlti.apicontracheque.response.VencimentosResponse;
 import lombok.experimental.UtilityClass;
 import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import java.util.Base64;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static com.rlti.apicontracheque.utils.ConvertString.*;
 
@@ -56,6 +57,14 @@ public class JasperReports {
         parameters.put("conta", contrachequeResponse.conta());
         parameters.put("dataPagamento", contrachequeResponse.dataPagamento() != null ? formatarData(contrachequeResponse.dataPagamento()) : "");
         parameters.put("ctps", contrachequeResponse.ctps());
+
+        List<DescontosResponse> descontosArray = contrachequeResponse.descontos();
+        JRBeanCollectionDataSource descontosDataSource = new JRBeanCollectionDataSource(descontosArray);
+        parameters.put("descontosDataSet", descontosDataSource);
+
+        List<VencimentosResponse> vencimentosArray = contrachequeResponse.vencimentos();
+        JRBeanCollectionDataSource vencimentosDataSource = new JRBeanCollectionDataSource(vencimentosArray);
+        parameters.put("vencimentosDataSet", vencimentosDataSource);
 
         return parameters;
     }

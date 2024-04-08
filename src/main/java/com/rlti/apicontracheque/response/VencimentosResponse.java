@@ -1,10 +1,10 @@
 package com.rlti.apicontracheque.response;
 
-import java.math.BigDecimal;
+import lombok.Data;
 
-public record VencimentosResponse(
-        String codigo,
-        String descricao,
-        BigDecimal valorDesconto
-) {
+@Data
+public class VencimentosResponse{
+    String codigo;
+    String descricao;
+    String valorVencimento;
 }
