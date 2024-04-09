@@ -1,0 +1,2 @@
+rhClient:
+  url: ${HOST_RH:http://localhost:8080/rh/api}
