@@ -56,7 +56,7 @@
 			<staticText>
 				<reportElement x="102" y="13" width="408" height="29" uuid="f8272393-e8b0-40b1-93bd-0dead3881dd8"/>
 				<textElement textAlignment="Center">
-					<font fontName="Arial Black" size="16"/>
+					<font fontName="Arial Black" size="20"/>
 				</textElement>
 				<text><![CDATA[LACERDA'S TECHNOLOGIES]]></text>
 			</staticText>
@@ -90,7 +90,7 @@
 				<reportElement mode="Transparent" x="0" y="55" width="90" height="30" uuid="061f65e7-cd06-4b16-987a-4e8f118aaf30"/>
 			</rectangle>
 			<rectangle>
-				<reportElement mode="Transparent" x="0" y="4" width="555" height="26" uuid="9214e5bd-0d22-4829-9d17-7ae254f68ec2"/>
+				<reportElement mode="Opaque" x="0" y="4" width="555" height="26" backcolor="#FFF5F5" uuid="9214e5bd-0d22-4829-9d17-7ae254f68ec2"/>
 			</rectangle>
 			<staticText>
 				<reportElement x="6" y="7" width="540" height="20" uuid="3fcd55b5-3cbf-4cbd-a795-5ac2cd55f89e"/>
@@ -191,10 +191,10 @@
 				<reportElement mode="Transparent" x="420" y="115" width="135" height="30" uuid="0d2ab3ef-2b50-4dcd-9c3f-576c2abcc0e6"/>
 			</rectangle>
 			<rectangle>
-				<reportElement mode="Transparent" x="0" y="145" width="275" height="20" uuid="4f824f23-78a9-4f73-975d-ffe9f4262a9a"/>
+				<reportElement mode="Opaque" x="0" y="145" width="275" height="20" backcolor="#FFF5F5" uuid="4f824f23-78a9-4f73-975d-ffe9f4262a9a"/>
 			</rectangle>
 			<rectangle>
-				<reportElement mode="Transparent" x="275" y="145" width="280" height="20" uuid="84c732df-d244-4030-bddb-4c38d122767d"/>
+				<reportElement mode="Opaque" x="275" y="145" width="280" height="20" backcolor="#FFF5F5" uuid="84c732df-d244-4030-bddb-4c38d122767d"/>
 			</rectangle>
 			<staticText>
 				<reportElement x="5" y="145" width="258" height="20" uuid="9ffbc7d2-08f2-4c56-9c0c-10371298f7fa"/>
@@ -217,36 +217,51 @@
 				<reportElement mode="Transparent" x="275" y="165" width="280" height="200" uuid="552b3430-e301-4c06-b02e-58b01765454d"/>
 			</rectangle>
 			<rectangle>
-				<reportElement mode="Transparent" x="0" y="365" width="275" height="40" uuid="1074d49e-8c13-4e87-9d82-8b4d57cdc2e2"/>
+				<reportElement mode="Opaque" x="0" y="365" width="275" height="40" backcolor="#FFF5F5" uuid="1074d49e-8c13-4e87-9d82-8b4d57cdc2e2"/>
 			</rectangle>
 			<rectangle>
-				<reportElement mode="Transparent" x="275" y="365" width="280" height="40" uuid="32c7f497-875a-45b9-99b9-fee6cefa5587"/>
+				<reportElement mode="Opaque" x="275" y="365" width="280" height="40" backcolor="#FFF5F5" uuid="32c7f497-875a-45b9-99b9-fee6cefa5587"/>
 			</rectangle>
 			<staticText>
 				<reportElement x="3" y="369" width="137" height="17" uuid="3ed044a1-976f-4ce6-9f41-964f99dc1ddd"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[TOTAL DE VENCIMENTOS]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="283" y="367" width="137" height="17" uuid="bb335cf8-f517-4f2a-971c-d9b2fe710d41"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[TOTAL DE DESCONTOS]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="283" y="386" width="137" height="17" uuid="c288fba4-341a-4a79-9d55-a6b352647efa"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[LÍQUIDO A RECEBER]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="437" y="385" width="114" height="20" uuid="e1ce543c-1ddf-45be-b444-72e233af6389"/>
-				<textElement textAlignment="Right"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{salarioLiquido}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="437" y="367" width="114" height="20" uuid="d63b813b-f3e2-4f04-8be9-06535402537a"/>
-				<textElement textAlignment="Right"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{totalDescontos}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="153" y="367" width="118" height="20" uuid="ea2ef26c-c76c-4bc2-bfcc-be6965119139"/>
-				<textElement textAlignment="Right"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{totalVencimentos}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -357,10 +372,10 @@
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="180" uuid="aec1952f-70a7-4463-b96b-6276a020fac1">
+					<jr:column width="160" uuid="aec1952f-70a7-4463-b96b-6276a020fac1">
 						<jr:detailCell height="20">
 							<textField>
-								<reportElement x="0" y="0" width="180" height="20" uuid="3c83c41f-5477-472a-bf9b-230a97b2cb0a"/>
+								<reportElement x="0" y="0" width="160" height="20" uuid="3c83c41f-5477-472a-bf9b-230a97b2cb0a"/>
 								<box>
 									<pen lineColor="rgba(0, 0, 0, 0.0)"/>
 								</box>
@@ -371,11 +386,11 @@
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="43" uuid="93eda4f1-cc40-420f-abe2-5ae4f459c92f">
+					<jr:column width="63" uuid="93eda4f1-cc40-420f-abe2-5ae4f459c92f">
 						<property name="com.jaspersoft.studio.unit.width" value="cm"/>
 						<jr:detailCell height="20">
 							<textField>
-								<reportElement x="0" y="0" width="43" height="20" uuid="00555212-43d9-46af-b2af-b1cc999c1d48"/>
+								<reportElement x="0" y="0" width="63" height="20" uuid="00555212-43d9-46af-b2af-b1cc999c1d48"/>
 								<box>
 									<pen lineColor="rgba(0, 0, 0, 0.0)"/>
 								</box>
@@ -389,7 +404,7 @@
 				</jr:table>
 			</componentElement>
 			<componentElement>
-				<reportElement x="6" y="168" width="265" height="187" uuid="96be7ff3-6fe7-41d1-963e-f8ddc5e28bbe">
+				<reportElement x="4" y="168" width="267" height="187" uuid="96be7ff3-6fe7-41d1-963e-f8ddc5e28bbe">
 					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
 					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
@@ -399,29 +414,29 @@
 					<datasetRun subDataset="vencimentosDataset" uuid="1621aa85-80bc-42da-b0f2-5719dad41de7">
 						<dataSourceExpression><![CDATA[$P{vencimentosDataSet}]]></dataSourceExpression>
 					</datasetRun>
-					<jr:column width="40" uuid="44dfa7ae-f055-48bf-b183-814c10ba3316">
+					<jr:column width="50" uuid="44dfa7ae-f055-48bf-b183-814c10ba3316">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
 						<jr:detailCell height="20">
 							<textField>
-								<reportElement x="0" y="0" width="40" height="20" uuid="86a39a05-bda7-43bb-b733-a17f731435bc"/>
+								<reportElement x="0" y="0" width="50" height="20" uuid="86a39a05-bda7-43bb-b733-a17f731435bc"/>
 								<textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="180" uuid="2f6b56ab-b62d-46da-be89-569109d0d311">
+					<jr:column width="160" uuid="2f6b56ab-b62d-46da-be89-569109d0d311">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
 						<jr:detailCell height="20">
 							<textField>
-								<reportElement x="0" y="0" width="180" height="20" uuid="477eb5db-5753-4a0f-97ca-9fc79d6b2558"/>
+								<reportElement x="0" y="0" width="160" height="20" uuid="477eb5db-5753-4a0f-97ca-9fc79d6b2558"/>
 								<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="45" uuid="c7a90911-0edc-487f-81a3-3bdb91580c41">
+					<jr:column width="57" uuid="c7a90911-0edc-487f-81a3-3bdb91580c41">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
 						<jr:detailCell height="20">
 							<textField>
-								<reportElement x="0" y="0" width="45" height="20" uuid="3cf3f277-27b7-4e6f-a4e3-4023f2a5ca47"/>
+								<reportElement x="0" y="0" width="57" height="20" uuid="3cf3f277-27b7-4e6f-a4e3-4023f2a5ca47"/>
 								<textFieldExpression><![CDATA[$F{valorVencimento}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
@@ -429,11 +444,13 @@
 				</jr:table>
 			</componentElement>
 			<rectangle>
-				<reportElement x="276" y="480" width="279" height="19" uuid="fd0e0ef4-bcba-4852-ba1e-f78353d711d6"/>
+				<reportElement mode="Opaque" x="0" y="480" width="555" height="19" backcolor="#F5DFDF" uuid="fd0e0ef4-bcba-4852-ba1e-f78353d711d6"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="276" y="481" width="274" height="18" uuid="35e5fbd7-0704-4877-b356-fef407003f0d"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<reportElement x="276" y="480" width="274" height="18" uuid="35e5fbd7-0704-4877-b356-fef407003f0d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Microsoft YaHei Light"/>
+				</textElement>
 				<text><![CDATA[Developed by: Ranelho Lacerda ®]]></text>
 			</staticText>
 		</band>
