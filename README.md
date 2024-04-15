@@ -1,5 +1,6 @@
 # Documentação da API
 
+---
 Este documento descreve a definição da API usando OpenAPI (Swagger).
 
 ## Informações Gerais
@@ -16,6 +17,7 @@ Este documento descreve a definição da API usando OpenAPI (Swagger).
 
 ## Endpoints
 
+---
 ### Gerar Contracheque Base64
 
 Endpoint para gerar um contracheque em formato Base64.
@@ -39,6 +41,7 @@ Endpoint para gerar um contracheque em formato Base64.
         - Descrição: OK
         - Tipo de Conteúdo: `string`
 
+---
 ### Gerar Contracheque PDF
 
 Endpoint para gerar um contracheque em formato PDF.
@@ -74,7 +77,46 @@ Esquema para a requisição de geração de contracheque.
     - `matricula`: Tipo string
 
 ---
+### Docker
+<p>Build do projeto configurado no Dockerfile</p>
 
-Este documento foi gerado automaticamente a partir da definição da API utilizando o OpenAPI (Swagger).
+```
+FROM maven:3.8.5-openjdk-17 as build
+WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
 
-Se precisar de mais informações ou tiver dúvidas, entre em contato com o desenvolvedor da API.
+FROM openjdk:17
+WORKDIR /app
+COPY --from=build ./app/target/*.jar ./app.jar
+EXPOSE 8082
+ENTRYPOINT java -jar app.jar
+```
+<p>Criar imagem na raiz do projeto [rh-contracheque (é o nome da imagem)]</p>
+
+``` 
+docker build --tag rh-contracheque .
+```
+<p>Subir imagem [8082:8082 (porta exposta na qual a api vai subir)]</p>
+
+```
+docker run --name rh-contracheque -p 8082:8082 rh-contracheque
+```  
+### COMANDO ÚTEIS
+
+```
+# parar container
+docker container stop rh-contracheque
+
+#iniciar conatainer
+docker container start rh-contracheque
+
+#remover container
+docker container rm rh-contracheque
+
+#deletar image
+docker image rm rh-contracheque
+```
+
+---
+
