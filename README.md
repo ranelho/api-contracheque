@@ -1,12 +1,12 @@
 # Documentação da API
 
 ---
-Este documento descreve a definição da API usando OpenAPI (Swagger).
+Este parte descreve a definição da API usando OpenAPI (Swagger).
 
 ## Informações Gerais
 
 - **Título:** OpenAPI definition
-- **Versão:** v0
+- **Versão:** v1
 
 ## Servidores
 
@@ -80,7 +80,7 @@ Esquema para a requisição de geração de contracheque.
 ### Docker
 <p>Build do projeto configurado no Dockerfile</p>
 
-```
+```Dockerfile
 FROM maven:3.8.5-openjdk-17 as build
 WORKDIR /app
 COPY . .
@@ -94,17 +94,21 @@ ENTRYPOINT java -jar app.jar
 ```
 <p>Criar imagem na raiz do projeto [rh-contracheque (é o nome da imagem)]</p>
 
-``` 
+```Dockerfile
 docker build --tag rh-contracheque .
 ```
 <p>Subir imagem [8082:8082 (porta exposta na qual a api vai subir)]</p>
 
-```
+```Dockerfile
+#sem variavel de ambiente
 docker run --name rh-contracheque -p 8082:8082 rh-contracheque
+
+#com variavel de ambiente
+docker run --name rh-contracheque -p 8082:8082 rh-contracheque -e HOST_RH=http://localhost:8080/rh/api 
 ```  
 ### COMANDO ÚTEIS
 
-```
+```Dockerfile
 # parar container
 docker container stop rh-contracheque
 
@@ -118,5 +122,25 @@ docker container rm rh-contracheque
 docker image rm rh-contracheque
 ```
 
+### Application
+```yml
+spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+server:
+  port:
+    8082
+  servlet:
+    context-path: /contracheque/api
+springdoc:
+  swagger-ui:
+    path: /public/swagger
+```
+
+### Application dev, prod, test
+```yml
+rhClient:
+  url: ${HOST_RH}
+```
 ---
 
