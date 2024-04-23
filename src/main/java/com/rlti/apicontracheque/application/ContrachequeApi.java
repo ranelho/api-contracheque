@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("v1/contracheque")
 public interface ContrachequeApi {
 
-    @PostMapping("/funcionario")
+    @PostMapping("/funcionario/base64")
     @ResponseStatus(HttpStatus.OK)
     String gerarContrachequeBase64(@Valid @RequestBody ContrachequeRequest contrachequeRequest);
 
