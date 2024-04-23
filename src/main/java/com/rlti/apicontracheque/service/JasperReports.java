@@ -4,6 +4,7 @@ import com.rlti.apicontracheque.response.ContrachequeResponse;
 import com.rlti.apicontracheque.response.DescontosResponse;
 import com.rlti.apicontracheque.response.VencimentosResponse;
 import lombok.experimental.UtilityClass;
+import lombok.extern.slf4j.Slf4j;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
@@ -14,6 +15,7 @@ import java.util.*;
 import static com.rlti.apicontracheque.utils.ConvertString.*;
 
 @UtilityClass
+@Slf4j
 public class JasperReports {
 
     public static String gerarContrachequeBase64(ContrachequeResponse contrachequeResponse) {
@@ -80,7 +82,7 @@ public class JasperReports {
             JasperExportManager.exportReportToPdfStream(jasperPrint, baos);
             return baos.toByteArray();
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Error generating payslip PDF", e);
             return new byte[0];
         }
     }
